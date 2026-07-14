@@ -1,53 +1,61 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+export type ThemeMode = "light" | "dark";
 
-import { Platform } from 'react-native';
+export interface ThemeColors {
+  bg: string;
+  surface: string;
+  surfaceAlt: string;
+  text: string;
+  textSecondary: string;
+  textMuted: string;
+  border: string;
+  primary: string;
+  primarySoft: string;
+  onPrimary: string;
+  success: string;
+  danger: string;
+  warning: string;
+  overlay: string;
+  chartBar: string;
+  chartBarFaded: string;
+}
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
-export const Colors = {
+export const THEMES: Record<ThemeMode, ThemeColors> = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    bg: "#F7F5FB",
+    surface: "#FFFFFF",
+    surfaceAlt: "#F1EBFD",
+    text: "#1A1523",
+    textSecondary: "#6B6580",
+    textMuted: "#9B95B0",
+    border: "#E9E5F3",
+    primary: "#7C3AED",
+    primarySoft: "#F1EBFD",
+    onPrimary: "#FFFFFF",
+    success: "#0E9F6E",
+    danger: "#E02424",
+    warning: "#C27803",
+    overlay: "rgba(26, 21, 35, 0.5)",
+    chartBar: "#7C3AED",
+    chartBarFaded: "#DDD1F8",
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    bg: "#14121F",
+    surface: "#1E1B2E",
+    surfaceAlt: "#2A2342",
+    text: "#F4F2FA",
+    textSecondary: "#A29DB8",
+    textMuted: "#6E6887",
+    border: "#2E2A40",
+    primary: "#9775FA",
+    primarySoft: "#2A2342",
+    onPrimary: "#14121F",
+    success: "#31C48D",
+    danger: "#F98080",
+    warning: "#E3A008",
+    overlay: "rgba(0, 0, 0, 0.6)",
+    chartBar: "#9775FA",
+    chartBarFaded: "#3A3155",
   },
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+export const CURRENCIES = ["$", "₱", "€", "£", "¥"] as const;
