@@ -14,7 +14,6 @@ import {
 import Animated, {
   FadeIn,
   FadeInDown,
-  ZoomIn,
   useAnimatedStyle,
   useSharedValue,
   withSequence,
@@ -277,7 +276,7 @@ export default function AddExpense() {
           style={[styles.successOverlay, { backgroundColor: colors.overlay }]}
         >
           <Animated.View
-            entering={ZoomIn.springify().damping(12)}
+            entering={FadeIn.duration(180)}
             style={[styles.successCard, { backgroundColor: colors.surface }]}
           >
             <View style={[styles.successIcon, { backgroundColor: colors.success }]}>
